@@ -36,7 +36,8 @@ const UsersPRs = AllPRs.reduce((acc, pr) => {
     pr.number +
     ": " +
     pr.title;
-  acc[pr.user.login].push({ PRTitle });
+  const PRLink = pr.pull_request.html_url;
+  acc[pr.user.login].push({ PRTitle, PRLink });
   return acc;
 }, {});
 console.log(UsersPRs);
