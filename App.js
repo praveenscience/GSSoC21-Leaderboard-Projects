@@ -34,5 +34,9 @@ const UsersPRs = AllPRs.reduce((acc, pr) => {
   return acc;
 }, {});
 console.log(UsersPRs);
-const UsersTable = Object.keys(UsersPRs);
+const UsersTable = Object.keys(UsersPRs).map(Username => ({
+  Username,
+  PRCount: UsersPRs[Username].length,
+  Score: UsersPRs[Username].reduce((a, b) => a + +b.Score, 0)
+}));
 console.log(UsersTable);
