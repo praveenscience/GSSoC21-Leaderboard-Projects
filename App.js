@@ -19,17 +19,6 @@ const calcScore = labels => {
 const AllPRs = Object.values(Data).flat();
 AllPRs.length = 5;
 const UsersPRs = AllPRs.reduce((acc, pr) => {
-  // Need to return a structure, that contains:
-  // Username: [
-  //   {
-  //     PRTitle:
-  //     PRLink:
-  //     Label:
-  //     Score:
-  //   }
-  // ]
-  // Find if this user is already there.
-  // Create an empty array if this user is not there.
   if (typeof acc[pr.user.login] === "undefined") {
     acc[pr.user.login] = [];
   }
