@@ -19,6 +19,7 @@ const UsersPRs = AllPRs.reduce(pr => {
   // Need to return a structure, that contains:
   // Username: [
   //   {
+  //     PRTitle:
   //     PRLink:
   //     Label:
   //     Score:
