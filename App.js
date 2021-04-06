@@ -14,3 +14,4 @@ const calcScore = labels => {
   labels = labels.map(l => l.name.toLowerCase()).sort();
   return score[labels.filter(value => need.includes(value))[0]];
 };
+console.log("Score of PR: " + calcScore(Data[Object.keys(Data)[0]][0].labels));
