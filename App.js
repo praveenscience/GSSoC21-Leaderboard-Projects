@@ -13,10 +13,9 @@ const score = {
 const need = Object.keys(score);
 const calcScore = labels => {
   labels = labels.map(l => l.name.toLowerCase()).sort();
-  return [
-    labels.filter(value => need.includes(value))[0],
-    score[labels.filter(value => need.includes(value))[0]]
-  ];
+  labels = labels.filter(value => need.includes(value))[0];
+  if (!labels) return ["No Label", 0];
+  return [labels, score[labels]];
 };
 const AllPRs = Object.values(Data).flat();
 console.log("Total Eligible PRs: " + AllPRs.length);
