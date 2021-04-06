@@ -2,8 +2,9 @@
   const table_data = document.querySelector(".table tbody");
   $.getJSON("/UsersTable.json", function (results) {
     table_data.innerHTML = "";
+    htmldata = "";
     results.forEach((participant, index) => {
-      table_data.innerHTML += `
+      htmldata += `
         <tr class="hover-color">
           <td class="table-data-id">${index + 1}</td>
           <td class="table-data-rank">${index + 1}</td>
@@ -15,6 +16,7 @@
         </tr>
       `;
     });
+    table_data.innerHTML = htmldata;
   });
 })();
 
