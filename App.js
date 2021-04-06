@@ -34,3 +34,5 @@ const UsersPRs = AllPRs.reduce((acc, pr) => {
   return acc;
 }, {});
 console.log(UsersPRs);
+const UsersTable = Object.keys(UsersPRs);
+console.log(UsersTable);
