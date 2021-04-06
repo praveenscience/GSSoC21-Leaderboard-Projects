@@ -25,6 +25,11 @@ const UsersPRs = AllPRs.reduce((acc, pr) => {
   //     Score:
   //   }
   // ]
-  console.log(pr.user.login);
+  // Find if this user is already there.
+  // Create an empty array if this user is not there.
+  if (typeof acc[pr.user.login] === "undefined") {
+    acc[pr.user.login] = [];
+  }
+  return acc;
 }, {});
 console.log(UsersPRs);
