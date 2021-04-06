@@ -14,6 +14,7 @@ const calcScore = labels => {
   return score[labels.filter(value => need.includes(value))[0]];
 };
 const AllPRs = Object.values(Data).flat();
+AllPRs.length = 5;
 const UsersPRs = AllPRs.reduce(pr => {
   // Need to return a structure, that contains:
   // Username: [
