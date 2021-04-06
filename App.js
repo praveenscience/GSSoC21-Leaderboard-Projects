@@ -15,7 +15,7 @@ const calcScore = labels => {
 };
 const AllPRs = Object.values(Data).flat();
 AllPRs.length = 5;
-const UsersPRs = AllPRs.reduce(pr => {
+const UsersPRs = AllPRs.reduce((acc, pr) => {
   // Need to return a structure, that contains:
   // Username: [
   //   {
@@ -25,5 +25,6 @@ const UsersPRs = AllPRs.reduce(pr => {
   //     Score:
   //   }
   // ]
+  console.log(pr.user.login);
 }, {});
 console.log(UsersPRs);
