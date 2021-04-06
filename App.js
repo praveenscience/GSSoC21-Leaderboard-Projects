@@ -40,7 +40,8 @@ const UsersPRs = AllPRs.reduce((acc, pr) => {
     ": " +
     pr.title;
   const PRLink = pr.pull_request.html_url;
-  acc[pr.user.login].push({ PRTitle, PRLink });
+  const [Label, Score] = calcScore(pr.labels);
+  acc[pr.user.login].push({ PRTitle, PRLink, Label, Score });
   return acc;
 }, {});
 console.log(UsersPRs);
