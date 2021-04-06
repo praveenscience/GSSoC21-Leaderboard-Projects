@@ -33,7 +33,9 @@ const UsersPRs = AllPRs.reduce((acc, pr) => {
   const PRTitle =
     pr.repository_url.replace("https://api.github.com/repos/", "") +
     "#" +
-    pr.number;
+    pr.number +
+    ": " +
+    pr.title;
   acc[pr.user.login].push({ PRTitle });
   return acc;
 }, {});
