@@ -30,6 +30,8 @@ const UsersPRs = AllPRs.reduce((acc, pr) => {
   if (typeof acc[pr.user.login] === "undefined") {
     acc[pr.user.login] = [];
   }
+  const repo = pr.repository_url.replace("https://api.github.com/repos/", "");
+  acc[pr.user.login].push(repo + "#" + pr.number);
   return acc;
 }, {});
 console.log(UsersPRs);
