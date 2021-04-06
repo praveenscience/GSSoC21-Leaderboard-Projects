@@ -10,3 +10,7 @@ const score = {
   level3: 45
 };
 const need = Object.keys(score);
+const calcScore = labels => {
+  labels = labels.map(l => l.name.toLowerCase()).sort();
+  return score[labels.filter(value => need.includes(value))[0]];
+};
