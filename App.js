@@ -1,7 +1,9 @@
 console.clear();
+const fs = require("fs");
 const Data = require("./Data.json");
-console.log("Hello!");
-console.log("Total Projects: " + Object.keys(Data).length);
+console.log("GSSoC 21 Leaderboard Generator!");
+console.log("--- Stats ---");
+console.log("Total Eligible Projects: " + Object.keys(Data).length);
 const score = {
   level0: 5,
   level1: 10,
@@ -17,7 +19,7 @@ const calcScore = labels => {
   ];
 };
 const AllPRs = Object.values(Data).flat();
-AllPRs.length = 5;
+console.log("Total Eligible PRs: " + AllPRs.length);
 const UsersPRs = AllPRs.reduce((acc, pr) => {
   if (typeof acc[pr.user.login] === "undefined") {
     acc[pr.user.login] = [];
@@ -33,10 +35,27 @@ const UsersPRs = AllPRs.reduce((acc, pr) => {
   acc[pr.user.login].push({ PRTitle, PRLink, Label, Score });
   return acc;
 }, {});
-console.log(UsersPRs);
+console.log("Total Users Contributed: " + Object.keys(UsersPRs).length);
+console.log("--- Files ---");
+console.log("Writing UsersPRs file...");
+fs.writeFileSync("UsersPRs.json", JSON.stringify(UsersPRs));
+console.log(
+  "Successfully written " +
+    JSON.stringify(UsersPRs).length +
+    " bytes UsersPRs file."
+);
 const UsersTable = Object.keys(UsersPRs).map(Username => ({
   Username,
   PRCount: UsersPRs[Username].length,
   Score: UsersPRs[Username].reduce((a, b) => a + +b.Score, 0)
 }));
-console.log(UsersTable.sort((a, b) => b.Score - a.Score));
+console.log("Writing UsersTable file...");
+fs.writeFileSync(
+  "UsersTable.json",
+  JSON.stringify(UsersTable.sort((a, b) => b.Score - a.Score))
+);
+console.log(
+  "Successfully written " +
+    JSON.stringify(UsersTable.sort((a, b) => b.Score - a.Score)).length +
+    " bytes UsersTable file."
+);
