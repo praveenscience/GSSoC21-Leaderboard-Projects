@@ -39,4 +39,4 @@ const UsersTable = Object.keys(UsersPRs).map(Username => ({
   PRCount: UsersPRs[Username].length,
   Score: UsersPRs[Username].reduce((a, b) => a + +b.Score, 0)
 }));
-console.log(UsersTable);
+console.log(UsersTable.sort((a, b) => b.Score - a.Score));
