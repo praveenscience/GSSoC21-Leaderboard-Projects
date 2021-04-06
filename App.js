@@ -9,4 +9,4 @@ const score = {
   level2: 25,
   level3: 45
 };
-const need = ["level0", "level1", "level2", "level3"];
+const need = Object.keys(score);
