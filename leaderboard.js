@@ -5,8 +5,8 @@
     results.forEach((participant, index) => {
       table_data.innerHTML += `
         <tr class="hover-color">
-          <td class="table-data-id">${index}</td>
-          <td class="table-data-rank">${index}</td>
+          <td class="table-data-id">${index + 1}</td>
+          <td class="table-data-rank">${index + 1}</td>
           <td class="table-username">
             <a href="https://github.com/${participant.Username}" target="_blank">${participant.Username}</a>
           </td>
