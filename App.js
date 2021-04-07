@@ -33,6 +33,16 @@ const UsersPRs = AllPRs.reduce((acc, pr) => {
 }, {});
 console.log("--- Files ---");
 const nullValues = [];
+const UsersTable = Object.keys(UsersPRs).map(Username => {
+  if (!UsersPRs[Username].reduce((a, b) => a + +b.Score, 0)) {
+    nullValues.push(UsersPRs[Username].map(u => ({ Username, ...u })));
+  }
+  return {
+    Username,
+    PRCount: UsersPRs[Username].length,
+    Score: UsersPRs[Username].reduce((a, b) => a + +b.Score, 0)
+  };
+});
 console.log("Writing nullValues file...");
 fs.writeFileSync("nullValues.txt", JSON.stringify(nullValues.flat()));
 console.log(
