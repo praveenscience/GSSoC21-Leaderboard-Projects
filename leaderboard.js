@@ -1,11 +1,10 @@
 (function () {
-  const table_data = document.querySelector(".table tbody");
   $.getJSON("/UsersTable.json", function (results) {
     scores = results
       .map(r => r.Score)
       .filter((value, index, self) => self.indexOf(value) === index)
       .sort((a, b) => +b - +a);
-    table_data.innerHTML = "";
+    $(".table tbody").html("");
     htmldata = "";
     results.forEach((participant, index) => {
       htmldata += `
@@ -20,7 +19,7 @@
         </tr>
       `;
     });
-    table_data.innerHTML = htmldata;
+    $(".table tbody").html(htmldata);
   });
 })();
 
