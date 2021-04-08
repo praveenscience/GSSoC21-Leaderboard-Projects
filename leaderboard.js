@@ -1,4 +1,7 @@
 (function () {
+  $.get("/UpdatedTime.txt", function (time) {
+    $(".prav-strong").text(time);
+  });
   $.getJSON("/UsersTable.json", function (results) {
     scores = results
       .map(r => r.Score)
