@@ -116,5 +116,8 @@
   "UniAuth/UniAuth",
   "UniAuth/laravel-middleware",
   "UniAuth/gin-middleware",
-  "UniAuth/uniauth-passport-strategy"
+  "UniAuth/uniauth-passport-strategy",
+  "CodeTrophs/Frontend",
+  "CodeTrophs/AI-Interview-Test",
+  "CodeTrophs/Backend"
 ]
