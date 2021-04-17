@@ -102,6 +102,7 @@
   "ProjectSakura/wiki",
   "ProjectSakura/maintainers",
   "ProjectSakura/download",
+  "ProjectSakura/contributors",
   "UniAuth/fiber-middleware",
   "UniAuth/http-exception-transformer",
   "UniAuth/express-middleware",
