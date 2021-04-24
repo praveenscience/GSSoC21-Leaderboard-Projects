@@ -74,28 +74,7 @@ console.log("Writing UsersTable file...");
 
 fs.writeFileSync(
   "UsersTable.json",
-  JSON.stringify(UsersTable.sort((a, b) => {
-    if(b.Score - a.Score > 0) return 1;
-    else if(b.Score - a.Score < 0) return -1;
-    else if(b.Score - a.Score === 0) {
-      // get their levels array 
-     if(b.Levels.length - a.Levels.length > 0) return 1;
-     else if(b.Levels.length - a.Levels.length < 0) return -1;
-     else if(b.Levels.length - a.Levels.length === 0) {
-       // now check the number of PRs
-       if(b.PRCount - a.PRCount > 0) return 1;
-       else if(b.PRCount - a.PRCount < 0) return -1;
-       else if(b.PRCount - a.PRCount === 0) {
-         var a_name = a.Username.toLowerCase();
-         var b_name = b.Username.toLowerCase();
-         // compare on username - for now
-         if(a_name < b_name) return -1;
-         else if(a_name > b_name) return 1;
-         else return 0;
-       }
-     }
-    }
-  }))
+  JSON.stringify(UsersTable.sort((a, b) => b.Score - a.Score))
 );
 
 
