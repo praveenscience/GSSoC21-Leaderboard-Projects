@@ -1,5 +1,4 @@
 const fs = require("fs");
-console.clear();
 const Months = [
   "January",
   "February",
