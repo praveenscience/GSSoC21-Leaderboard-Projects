@@ -21,8 +21,12 @@ const getOrdinalNum = n =>
 const timeInIndia = new Date(new Date().getTime() + 270 * 60000);
 const CurTime = `${getOrdinalNum(timeInIndia.getDate())} ${
   Months[timeInIndia.getMonth()]
-} ${timeInIndia.getHours() % 12}:${("0" + timeInIndia.getMinutes()).slice(
-  -2
-)} ${timeInIndia.getHours() >= 12 ? "pm" : "am"} IST`;
+} ${
+  timeInIndia.getHours() > 12
+    ? timeInIndia.getHours() - 12
+    : timeInIndia.getHours()
+}:${("0" + timeInIndia.getMinutes()).slice(-2)} ${
+  timeInIndia.getHours() >= 12 ? "pm" : "am"
+} IST`;
 console.log(CurTime);
 fs.writeFileSync("./UpdatedTime.txt", CurTime);
