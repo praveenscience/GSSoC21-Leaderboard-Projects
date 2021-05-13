@@ -24,7 +24,7 @@ const CurTime = `${getOrdinalNum(timeInIndia.getDate())} ${
 } ${
   timeInIndia.getHours() > 12
     ? timeInIndia.getHours() - 12
-    : timeInIndia.getHours()
+    : timeInIndia.getHours() === 0 ? 12 : timeInIndia.getHours()
 }:${("0" + timeInIndia.getMinutes()).slice(-2)} ${
   timeInIndia.getHours() >= 12 ? "pm" : "am"
 } IST`;
