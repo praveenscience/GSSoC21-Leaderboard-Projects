@@ -19,7 +19,7 @@ const getOrdinalNum = n =>
     ? ["th", "st", "nd", "rd"][(n > 3 && n < 21) || n % 10 > 3 ? 0 : n % 10]
     : "");
 const timeInIndia = new Date(
-  Math.floor(new Date().getTime() + (270 * 60000) / (15 * 60000)) * 15 * 60000
+  Math.floor((new Date().getTime() + 270 * 60000) / (15 * 60000)) * (15 * 60000)
 );
 const CurTime = `${getOrdinalNum(timeInIndia.getDate())} ${
   Months[timeInIndia.getMonth()]
